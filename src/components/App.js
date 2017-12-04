@@ -4,6 +4,7 @@ import Header from './HeaderComponent';
 import Action from './ActionComponent';
 import OptionList from './OptionListComponent';
 import AddOption from './AddOptionComponent';
+import { Jumbotron, Container } from 'reactstrap';
 
 class App extends Component {
   constructor(props){
@@ -62,10 +63,14 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Header title={title} subtitle={subtitle}/>
-        <Action onRemoveAll={this.onRemoveAll}/>
-        <OptionList options={this.state.options} onRemoveList={this.onRemoveList}/>
-        <AddOption addTodoList={this.addTodoList}/>
+      <Jumbotron fluid>
+          <Container fluid>
+            <Header title={title} subtitle={subtitle}/>
+            <Action onRemoveAll={this.onRemoveAll} options={this.state.options}/>
+            <OptionList options={this.state.options} onRemoveList={this.onRemoveList}/>
+            <AddOption addTodoList={this.addTodoList}/>
+        </Container>
+      </Jumbotron>
       </div>
     );
   }

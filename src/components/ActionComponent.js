@@ -1,11 +1,15 @@
 import React from 'react';
-
+import {Button} from 'reactstrap'
 class Action extends React.Component {
 
   render() {
     return (
         <div>
-            <button onClick={this.props.onRemoveAll}>Remove All</button>
+            {
+              (this.props.options.length != 0)?
+              <Button onClick={this.props.onRemoveAll} color="danger">Remove All</Button>:<p></p>
+            }
+            
         </div>
     );
   }
